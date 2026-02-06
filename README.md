@@ -19,6 +19,8 @@ QuickNotes is a modern, responsive web application that allows users to create, 
 - **Frontend**: JavaScript (51.1%), HTML (24.1%), CSS (24.8%)
 - **Backend**: Firebase Firestore
 - **Architecture**: Web-based application
+## Preview
+<img src="preview.png">
 
 ## Getting Started
 
