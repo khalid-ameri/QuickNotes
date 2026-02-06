@@ -6,11 +6,7 @@ const notesList = document.getElementById("notesList");
 const loginBtn = document.getElementById("loginBtn");
 const logoutBtn = document.getElementById("logoutBtn");
 
-// Firebase references
-const auth = firebase.auth();
-const db = firebase.firestore();
-
-// --- Authentication --- //
+// --- Auth --- //
 loginBtn.addEventListener("click", () => {
   const email = prompt("Email:");
   const password = prompt("Password:");
@@ -18,16 +14,13 @@ loginBtn.addEventListener("click", () => {
     .catch(err => alert(err.message));
 });
 
-logoutBtn.addEventListener("click", () => {
-  auth.signOut();
-});
+logoutBtn.addEventListener("click", () => auth.signOut());
 
 // --- Listen for auth changes --- //
 auth.onAuthStateChanged(user => {
   if (user) {
-    notesList.innerHTML = "";
-    listenNotes(user.uid);
     addNoteBtn.disabled = false;
+    listenNotes(user.uid);
   } else {
     notesList.innerHTML = "<p>Please log in to see your notes.</p>";
     addNoteBtn.disabled = true;
