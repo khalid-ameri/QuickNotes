@@ -16,6 +16,15 @@ h1 {
   margin-bottom: 20px;
 }
 
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background: #3b82f6;
+  color: white;
+  cursor: pointer;
+}
+
 .note-input input,
 .note-input textarea {
   width: 100%;
@@ -25,15 +34,6 @@ h1 {
   border: 1px solid #374151;
   background: #1e293b;
   color: #f8fafc;
-}
-
-button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 8px;
-  background: #3b82f6;
-  color: white;
-  cursor: pointer;
 }
 
 .note-card {
@@ -54,4 +54,45 @@ button {
 .note-card button {
   background: #ef4444;
   margin-top: 5px;
+}
+
+/* Modal styling */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.7);
+}
+
+.modal-content {
+  background-color: #1e293b;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  color: #f8fafc;
+  text-align: center;
+}
+
+.modal-content input {
+  width: 90%;
+  padding: 8px;
+  margin: 8px 0;
+  border-radius: 6px;
+  border: 1px solid #374151;
+  background: #0f172a;
+  color: #f8fafc;
+}
+
+.modal-content button {
+  width: 50%;
+}
+
+.close {
+  float: right;
+  font-size: 24px;
+  cursor: pointer;
 }
