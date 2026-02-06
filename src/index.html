@@ -9,13 +9,13 @@
   <div class="container">
     <h1>QuickNotes</h1>
 
-    <!-- Auth Buttons -->
+    <!-- Auth buttons -->
     <div class="auth-buttons">
-      <button id="loginBtn">Login</button>
-      <button id="logoutBtn">Logout</button>
+      <button id="openAuthModal">Login / Signup</button>
+      <button id="logoutBtn" style="display:none;">Logout</button>
     </div>
 
-    <!-- Add Note -->
+    <!-- Add note -->
     <div class="note-input">
       <input type="text" id="noteTitle" placeholder="Title">
       <textarea id="noteContent" placeholder="Write your note..."></textarea>
@@ -26,12 +26,25 @@
     <div id="notesList">Please log in to see your notes.</div>
   </div>
 
-  <!-- Firebase CDN (compat version) -->
+  <!-- Auth Modal -->
+  <div id="authModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 id="modalTitle">Login</h2>
+      <form id="authForm">
+        <input type="email" id="emailInput" placeholder="Email" required>
+        <input type="password" id="passwordInput" placeholder="Password" required>
+        <button type="submit" id="authSubmitBtn">Login</button>
+      </form>
+      <p id="toggleAuth">Don't have an account? <a href="#" id="toggleLink">Sign Up</a></p>
+    </div>
+  </div>
+
+  <!-- Firebase CDN (compat) -->
   <script src="https://www.gstatic.com/firebasejs/11.0.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/11.0.0/firebase-firestore-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/11.0.0/firebase-auth-compat.js"></script>
 
-  <!-- Config + App -->
   <script src="firebaseConfig.js"></script>
   <script src="app.js"></script>
 </body>
