@@ -9,18 +9,29 @@
   <div class="container">
     <h1>QuickNotes</h1>
 
+    <!-- Auth Buttons -->
+    <div class="auth-buttons">
+      <button id="loginBtn">Login</button>
+      <button id="logoutBtn">Logout</button>
+    </div>
+
+    <!-- Add Note -->
     <div class="note-input">
       <input type="text" id="noteTitle" placeholder="Title">
       <textarea id="noteContent" placeholder="Write your note..."></textarea>
-      <button id="addNote">Add Note</button>
+      <button id="addNote" disabled>Add Note</button>
     </div>
 
-    <div id="notesList"></div>
+    <!-- Notes list -->
+    <div id="notesList">Please log in to see your notes.</div>
   </div>
 
-  <!-- Firebase SDK -->
-  <script src="https://www.gstatic.com/firebasejs/11.0.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/11.0.0/firebase-firestore.js"></script>
+  <!-- Firebase CDN (compat version) -->
+  <script src="https://www.gstatic.com/firebasejs/11.0.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/11.0.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/11.0.0/firebase-auth-compat.js"></script>
+
+  <!-- Config + App -->
   <script src="firebaseConfig.js"></script>
   <script src="app.js"></script>
 </body>
