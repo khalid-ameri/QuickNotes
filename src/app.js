@@ -6,14 +6,35 @@ const notesList = document.getElementById("notesList");
 const loginBtn = document.getElementById("loginBtn");
 const logoutBtn = document.getElementById("logoutBtn");
 
-// --- Auth --- //
-loginBtn.addEventListener("click", () => {
-  const email = prompt("Email:");
-  const password = prompt("Password:");
-  auth.signInWithEmailAndPassword(email, password)
-    .catch(err => alert(err.message));
+// --- Combined Login/Signup --- //
+loginBtn.addEventListener("click", async () => {
+  const email = prompt("Enter your email:");
+  const password = prompt("Enter your password:");
+
+  if (!email || !password) return alert("Email and password required!");
+
+  try {
+    // Try to sign in
+    await auth.signInWithEmailAndPassword(email, password);
+    alert("Logged in successfully!");
+  } catch (err) {
+    // If user doesn't exist, create account
+    if (err.code === "auth/user-not-found") {
+      try {
+        await auth.createUserWithEmailAndPassword(email, password);
+        alert("Account created and logged in!");
+      } catch (signupErr) {
+        alert("Signup failed: " + signupErr.message);
+      }
+    } else if (err.code === "auth/wrong-password") {
+      alert("Wrong password!");
+    } else {
+      alert("Login error: " + err.message);
+    }
+  }
 });
 
+// Logout
 logoutBtn.addEventListener("click", () => auth.signOut());
 
 // --- Listen for auth changes --- //
